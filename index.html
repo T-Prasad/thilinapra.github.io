@@ -1,34 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Your Name</title>
+  <meta charset="UTF-8">
+  <title>Thilina Prasad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0f172a; /* deep dark blue */
+    }
+
+    .card {
+      background: #111827;
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 320px;
       text-align: center;
-      background: #f5f5f5;
-      padding: 40px;
+      color: #e5e7eb;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.05);
     }
-    a {
-      display: block;
-      margin: 10px;
+
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid #6366f1;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 20px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
       padding: 12px;
-      background: #333;
-      color: white;
+      border-radius: 12px;
       text-decoration: none;
-      border-radius: 8px;
+      color: #e5e7eb;
+      background: #1f2937;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
     }
+
+    .link:hover {
+      background: #6366f1;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(99,102,241,0.4);
+    }
+
+    .link i {
+      font-size: 18px;
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
   </style>
 </head>
-<body>
-  <h2>Your Name</h2>
-  <p>Connect with me</p>
 
-  <a href="https://instagram.com/yourname">Instagram</a>
-  <a href="https://linkedin.com/in/yourname">LinkedIn</a>
-  <a href="https://facebook.com/yourname">Facebook</a>
-  <a href="https://wa.me/yournumber">WhatsApp</a>
+<body>
+
+  <div class="card">
+    
+    <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
+
+    <h2>Thilina Prasad</h2>
+    <p>Connect with me</p>
+
+    <a class="link" href="https://instagram.com/yourname" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a class="link" href="https://linkedin.com/in/yourname" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+
+    <a class="link" href="https://facebook.com/yourname" target="_blank">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+
+    <a class="link" href="https://wa.me/yournumber" target="_blank">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <footer>
+      © 2026 Thilina
+    </footer>
+
+  </div>
 
 </body>
 </html>
