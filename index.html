@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thilina Prasad</title>
+  <title>Thilina Prasad | Data Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -21,50 +21,92 @@
 
     body {
       height: 100vh;
+      overflow: hidden;
+      color: white;
       display: flex;
-      justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at top, #1e293b, #020617);
-      color: #e5e7eb;
+      justify-content: center;
+      background: #020617;
     }
 
-    .card {
-      background: rgba(17, 24, 39, 0.9);
-      backdrop-filter: blur(12px);
-      padding: 30px 25px;
-      border-radius: 20px;
-      width: 340px;
+    /* 🔴 Dark Red Gradient Background */
+    .background {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        #020617,
+        #0f172a,
+        #1e293b,
+        #3f0a0a,
+        #5a0f0f,
+        #0f172a
+      );
+      background-size: 400% 400%;
+      animation: gradientMove 16s ease infinite;
+      filter: blur(120px);
+      opacity: 0.55;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.7);
-      border: 1px solid rgba(255,255,255,0.05);
-      animation: fadeIn 1s ease;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(2, 6, 23, 0.88);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.9);
+      animation: fadeUp 1s ease;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .profile-img {
-      width: 95px;
-      height: 95px;
+    .profile {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 3px solid #6366f1;
+      border: 3px solid #7f1d1d; /* dark red */
       margin-bottom: 15px;
     }
 
-    h2 {
-      font-weight: 600;
-      margin-bottom: 5px;
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
     }
 
-    .title {
+    .role {
       font-size: 14px;
-      color: #9ca3af;
+      color: #94a3b8;
+      margin-bottom: 15px;
+    }
+
+    .skills {
+      font-size: 12px;
+      color: #cbd5f5;
       margin-bottom: 20px;
     }
 
-    .link {
+    .about {
+      font-size: 13px;
+      color: #cbd5f5;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    .links a {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -73,43 +115,38 @@
       padding: 12px;
       border-radius: 12px;
       text-decoration: none;
-      color: #e5e7eb;
-      background: #1f2937;
-      transition: all 0.3s ease;
-    }
-
-    .link:hover {
-      background: #6366f1;
       color: white;
+      background: rgba(255,255,255,0.05);
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      background: #5a0f0f; /* deep red hover */
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(99,102,241,0.5);
+      box-shadow: 0 8px 20px rgba(90,15,15,0.6);
     }
 
-    .link i {
-      font-size: 18px;
-    }
-
-    .contact-btn {
+    .cta {
+      margin-top: 20px;
       display: block;
-      margin-top: 15px;
       padding: 12px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #7f1d1d, #3f0a0a);
       color: white;
       text-decoration: none;
       font-weight: 500;
       transition: 0.3s;
     }
 
-    .contact-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.03);
+    .cta:hover {
+      transform: scale(1.04);
+      box-shadow: 0 10px 25px rgba(90,15,15,0.5);
     }
 
     footer {
       margin-top: 15px;
       font-size: 12px;
-      color: #6b7280;
+      color: #64748b;
     }
 
   </style>
@@ -117,38 +154,49 @@
 
 <body>
 
-  <div class="card">
-    
-    <!-- Profile -->
-    <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
+  <div class="background"></div>
 
-    <h2>Thilina Prasad</h2>
-    <div class="title">Software Engineer | Freelancer</div>
+  <div class="container">
 
-    <!-- Social Links -->
-    <a class="link" href="https://instagram.com/yourname" target="_blank">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
+    <img src="https://via.placeholder.com/150" class="profile" alt="Profile">
 
-    <a class="link" href="https://linkedin.com/in/yourname" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
+    <h1>Thilina Prasad</h1>
+    <div class="role">Data Engineer</div>
 
-    <a class="link" href="https://facebook.com/yourname" target="_blank">
-      <i class="fab fa-facebook"></i> Facebook
-    </a>
+    <div class="skills">
+      Python • SQL • ETL • Data Pipelines • Spark • Cloud
+    </div>
 
-    <a class="link" href="https://wa.me/yournumber" target="_blank">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
+    <div class="about">
+      I design scalable data systems and pipelines that transform raw data into actionable insights. 
+      Focused on performance, reliability, and modern data architecture.
+    </div>
 
-    <!-- Save Contact Button -->
-    <a class="contact-btn" href="data:text/vcard;charset=utf-8,
+    <div class="links">
+      <a href="https://github.com/yourname" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+
+      <a href="https://linkedin.com/in/yourname" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+
+      <a href="https://medium.com/@yourname" target="_blank">
+        <i class="fab fa-medium"></i> Blog / Articles
+      </a>
+
+      <a href="https://wa.me/yournumber" target="_blank">
+        <i class="fab fa-whatsapp"></i> Contact Me
+      </a>
+    </div>
+
+    <a class="cta" href="data:text/vcard;charset=utf-8,
 BEGIN:VCARD
 VERSION:3.0
 FN:Thilina Prasad
-TEL:+947XXXXXXXX
-EMAIL:your@email.com
+TITLE:Data Engineer
+TEL:+9477 - 51 40 144
+EMAIL:info.thilinaprasad@gmail.com
 END:VCARD">
       <i class="fas fa-address-card"></i> Save Contact
     </a>
