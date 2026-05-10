@@ -1,152 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Thilina Prasad | Data Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+  <title>Thilina Prasad | Software Engineer</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
     }
 
-    body {
-      height: 100vh;
-      overflow: hidden;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #020617;
+    body{
+      height:100vh;
+      overflow:hidden;
+      background:#0b1120;
+      color:#f1f5f9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
     }
 
-    /* 🔴 Dark Red Gradient Background */
-    .background {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        45deg,
-        #020617,
-        #0f172a,
-        #1e293b,
-        #3f0a0a,
-        #5a0f0f,
-        #0f172a
+    /* Background Glow */
+    .bg{
+      position:absolute;
+      width:900px;
+      height:900px;
+      background:radial-gradient(circle,
+      rgba(59,130,246,0.20) 0%,
+      rgba(15,23,42,0) 70%);
+      animation:float 8s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-20px);
+      }
+    }
+
+    .card{
+      position:relative;
+      z-index:2;
+      width:420px;
+      max-width:92%;
+      padding:35px;
+      border-radius:28px;
+
+      background:rgba(15,23,42,0.85);
+      border:1px solid rgba(148,163,184,0.12);
+
+      backdrop-filter:blur(20px);
+
+      box-shadow:
+      0 10px 40px rgba(0,0,0,0.45),
+      0 0 0 1px rgba(255,255,255,0.02);
+
+      text-align:center;
+
+      animation:fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .profile{
+      width:115px;
+      height:115px;
+      border-radius:50%;
+      object-fit:cover;
+
+      border:3px solid #334155;
+
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-size:30px;
+      font-weight:700;
+      margin-bottom:8px;
+      letter-spacing:-0.5px;
+    }
+
+    .role{
+      color:#94a3b8;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+
+      margin-bottom:24px;
+    }
+
+    .skills span{
+      padding:8px 14px;
+      border-radius:999px;
+
+      background:#1e293b;
+      border:1px solid rgba(148,163,184,0.15);
+
+      font-size:12px;
+      color:#cbd5e1;
+    }
+
+    .about{
+      font-size:14px;
+      line-height:1.8;
+      color:#cbd5e1;
+      margin-bottom:28px;
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .links a{
+      text-decoration:none;
+      color:#e2e8f0;
+
+      background:#111827;
+
+      border:1px solid rgba(148,163,184,0.10);
+
+      padding:14px;
+      border-radius:16px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+
+      transition:0.3s ease;
+      font-weight:500;
+    }
+
+    .links a:hover{
+      background:#1e293b;
+      transform:translateY(-2px);
+
+      border-color:#3b82f6;
+      box-shadow:0 10px 25px rgba(59,130,246,0.18);
+    }
+
+    .cta{
+      margin-top:24px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+
+      width:100%;
+
+      padding:15px;
+
+      border-radius:16px;
+
+      text-decoration:none;
+      color:white;
+
+      background:linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
       );
-      background-size: 400% 400%;
-      animation: gradientMove 16s ease infinite;
-      filter: blur(120px);
-      opacity: 0.55;
+
+      font-weight:600;
+
+      transition:0.3s ease;
     }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .cta:hover{
+      transform:translateY(-2px);
+
+      box-shadow:0 12px 30px rgba(37,99,235,0.35);
     }
 
-    .container {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 420px;
-      padding: 30px;
-      border-radius: 20px;
-      background: rgba(2, 6, 23, 0.88);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.9);
-      animation: fadeUp 1s ease;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .profile {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid #7f1d1d; /* dark red */
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .role {
-      font-size: 14px;
-      color: #94a3b8;
-      margin-bottom: 15px;
-    }
-
-    .skills {
-      font-size: 12px;
-      color: #cbd5f5;
-      margin-bottom: 20px;
-    }
-
-    .about {
-      font-size: 13px;
-      color: #cbd5f5;
-      margin-bottom: 25px;
-      line-height: 1.5;
-    }
-
-    .links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: white;
-      background: rgba(255,255,255,0.05);
-      transition: 0.3s;
-    }
-
-    .links a:hover {
-      background: #5a0f0f; /* deep red hover */
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(90,15,15,0.6);
-    }
-
-    .cta {
-      margin-top: 20px;
-      display: block;
-      padding: 12px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #7f1d1d, #3f0a0a);
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .cta:hover {
-      transform: scale(1.04);
-      box-shadow: 0 10px 25px rgba(90,15,15,0.5);
-    }
-
-    footer {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #64748b;
+    footer{
+      margin-top:20px;
+      color:#64748b;
+      font-size:12px;
     }
 
   </style>
@@ -154,51 +215,72 @@
 
 <body>
 
-  <div class="background"></div>
+  <div class="bg"></div>
 
-  <div class="container">
+  <div class="card">
 
-    <img src="https://via.placeholder.com/150" class="profile" alt="Profile">
+    <!-- Replace with your own image -->
+    <img
+      src="https://via.placeholder.com/200"
+      alt="Thilina Prasad"
+      class="profile"
+    >
 
     <h1>Thilina Prasad</h1>
-    <div class="role">Data Engineer</div>
+
+    <div class="role">
+      Software Engineer • Backend • Cloud • Data Systems
+    </div>
 
     <div class="skills">
-      Python • SQL • ETL • Data Pipelines • Spark • Cloud
+      <span>Python</span>
+      <span>Java</span>
+      <span>SQL</span>
+      <span>REST APIs</span>
+      <span>Cloud</span>
+      <span>ETL</span>
+      <span>Microservices</span>
+      <span>Linux</span>
     </div>
 
     <div class="about">
-      I design scalable data systems and pipelines that transform raw data into actionable insights. 
-      Focused on performance, reliability, and modern data architecture.
+      Building scalable backend systems, cloud-native applications,
+      and modern data solutions with a strong focus on performance,
+      clean architecture, and reliability.
     </div>
 
     <div class="links">
-      <a href="https://github.com/yourname" target="_blank">
-        <i class="fab fa-github"></i> GitHub
+
+      <a href="https://www.linkedin.com/in/thilina-prasad-b8aa8b1ab/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        LinkedIn
       </a>
 
-      <a href="https://linkedin.com/in/yourname" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
+      <a href="https://github.com/" target="_blank">
+        <i class="fab fa-github"></i>
+        GitHub
       </a>
 
-      <a href="https://medium.com/@yourname" target="_blank">
-        <i class="fab fa-medium"></i> Blog / Articles
+      <a href="mailto:info.thilinaprasad@gmail.com">
+        <i class="fas fa-envelope"></i>
+        Email
       </a>
 
-      <a href="https://wa.me/yournumber" target="_blank">
-        <i class="fab fa-whatsapp"></i> Contact Me
+      <a href="https://wa.me/94775140144" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp
       </a>
+
     </div>
 
-    <a class="cta" href="data:text/vcard;charset=utf-8,
-BEGIN:VCARD
-VERSION:3.0
-FN:Thilina Prasad
-TITLE:Data Engineer
-TEL:+9477 - 51 40 144
-EMAIL:info.thilinaprasad@gmail.com
-END:VCARD">
-      <i class="fas fa-address-card"></i> Save Contact
+    <!-- Main CTA -->
+    <a
+      class="cta"
+      href="https://www.linkedin.com/in/thilina-prasad-b8aa8b1ab/"
+      target="_blank"
+    >
+      <i class="fab fa-linkedin"></i>
+      Connect on LinkedIn
     </a>
 
     <footer>
