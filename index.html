@@ -3,289 +3,490 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thilina Prasad | BI & Data Engineer</title>
 
-  <title>Thilina Prasad | Software Engineer</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Inter',sans-serif;
+    :root {
+      --bg: #060c14;
+      --surface: #0a1220;
+      --surface2: #0f1c2e;
+      --border: rgba(40,90,160,0.18);
+      --text: #ddeeff;
+      --muted: #6a8aaa;
+      --navy: #1a3a6e;
+      --navy-light: #2457a4;
+      --green-dark: #0d3d26;
+      --green-mid: #155e38;
+      --green-light: #1e8a50;
     }
 
-    body{
-      height:100vh;
-      overflow:hidden;
-      background:#0b1120;
-      color:#f1f5f9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 20px 0;
     }
 
-    /* Background Glow */
-    .bg{
-      position:absolute;
-      width:900px;
-      height:900px;
-      background:radial-gradient(circle,
-      rgba(59,130,246,0.20) 0%,
-      rgba(15,23,42,0) 70%);
-      animation:float 8s ease-in-out infinite;
+    /* Layered mesh background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 800px 600px at 15% 25%, rgba(26,58,110,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 600px 500px at 85% 75%, rgba(13,61,38,0.15) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    @keyframes float{
-      0%,100%{
-        transform:translateY(0px);
-      }
-      50%{
-        transform:translateY(-20px);
-      }
+    /* Subtle grid lines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(36,87,164,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,87,164,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .card{
-      position:relative;
-      z-index:2;
-      width:420px;
-      max-width:92%;
-      padding:35px;
-      border-radius:28px;
-
-      background:rgba(15,23,42,0.85);
-      border:1px solid rgba(148,163,184,0.12);
-
-      backdrop-filter:blur(20px);
-
+    .card {
+      position: relative;
+      z-index: 2;
+      width: 440px;
+      max-width: 94%;
+      padding: 36px 32px 28px;
+      border-radius: 24px;
+      background: rgba(8,14,24,0.93);
+      border: 1px solid rgba(36,87,164,0.22);
+      backdrop-filter: blur(28px);
       box-shadow:
-      0 10px 40px rgba(0,0,0,0.45),
-      0 0 0 1px rgba(255,255,255,0.02);
-
-      text-align:center;
-
-      animation:fadeIn 1s ease;
+        0 0 0 1px rgba(255,255,255,0.03),
+        0 20px 60px rgba(0,0,0,0.65),
+        0 0 90px rgba(26,58,110,0.12);
+      text-align: center;
+      animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0)   scale(1);    }
     }
 
-    .profile{
-      width:115px;
-      height:115px;
-      border-radius:50%;
-      object-fit:cover;
-
-      border:3px solid #334155;
-
-      margin-bottom:20px;
+    /* Top accent line */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 30px; right: 30px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(36,87,164,0.7), rgba(30,138,80,0.6), transparent);
+      border-radius: 999px;
     }
 
-    h1{
-      font-size:30px;
-      font-weight:700;
-      margin-bottom:8px;
-      letter-spacing:-0.5px;
+    /* Avatar */
+    .avatar-wrap {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
     }
 
-    .role{
-      color:#94a3b8;
-      font-size:14px;
-      margin-bottom:20px;
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a3a6e, #2457a4, #0d3d26, #1e8a50, #2457a4);
+      z-index: -1;
+      animation: spin 6s linear infinite;
     }
 
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:10px;
-
-      margin-bottom:24px;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
-    .skills span{
-      padding:8px 14px;
-      border-radius:999px;
-
-      background:#1e293b;
-      border:1px solid rgba(148,163,184,0.15);
-
-      font-size:12px;
-      color:#cbd5e1;
+    .avatar-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid rgba(36,87,164,0.22);
     }
 
-    .about{
-      font-size:14px;
-      line-height:1.8;
-      color:#cbd5e1;
-      margin-bottom:28px;
+    .profile {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+      display: block;
     }
 
-    .links{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+    /* Status dot */
+    .status {
+      position: absolute;
+      bottom: 5px; right: 5px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #22c55e;
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 8px rgba(34,197,94,0.6);
     }
 
-    .links a{
-      text-decoration:none;
-      color:#e2e8f0;
-
-      background:#111827;
-
-      border:1px solid rgba(148,163,184,0.10);
-
-      padding:14px;
-      border-radius:16px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-
-      transition:0.3s ease;
-      font-weight:500;
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #e8edf5 40%, #a5b8d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .links a:hover{
-      background:#1e293b;
-      transform:translateY(-2px);
-
-      border-color:#3b82f6;
-      box-shadow:0 10px 25px rgba(59,130,246,0.18);
+    .role {
+      color: var(--muted);
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      font-weight: 400;
     }
 
-    .cta{
-      margin-top:24px;
-
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-
-      width:100%;
-
-      padding:15px;
-
-      border-radius:16px;
-
-      text-decoration:none;
-      color:white;
-
-      background:linear-gradient(
-      135deg,
-      #2563eb,
-      #1d4ed8
-      );
-
-      font-weight:600;
-
-      transition:0.3s ease;
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(26,58,110,0.30), rgba(13,61,38,0.20));
+      border: 1px solid rgba(36,87,164,0.35);
+      color: #7ab8f5;
+      font-size: 11.5px;
+      font-weight: 600;
+      font-family: 'Syne', sans-serif;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      letter-spacing: 0.03em;
     }
 
-    .cta:hover{
-      transform:translateY(-2px);
+    .role-badge i { font-size: 10px; }
 
-      box-shadow:0 12px 30px rgba(37,99,235,0.35);
+    /* Skills pills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 20px;
     }
 
-    footer{
-      margin-top:20px;
-      color:#64748b;
-      font-size:12px;
+    .skills span {
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(15,28,46,0.85);
+      border: 1px solid rgba(36,87,164,0.20);
+      font-size: 11px;
+      color: #7da8cc;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: 0.2s;
     }
 
+    .skills span:hover {
+      background: rgba(26,58,110,0.25);
+      border-color: rgba(36,87,164,0.45);
+      color: #a8ccee;
+    }
+
+    /* ── Highlighted / featured skill pills ── */
+    .skills span.hot {
+      background: linear-gradient(135deg, rgba(26,58,110,0.35), rgba(13,61,38,0.30));
+      border: 1px solid rgba(36,87,164,0.50);
+      color: #90c8ff;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .skills span.hot::before {
+      content: '◆';
+      font-size: 7px;
+      margin-right: 4px;
+      color: #4eb8ff;
+      vertical-align: middle;
+    }
+
+    .skills span.hot:hover {
+      background: linear-gradient(135deg, rgba(26,58,110,0.50), rgba(13,61,38,0.45));
+      border-color: rgba(36,87,164,0.75);
+      color: #b8dcff;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(36,87,164,0.25), rgba(30,138,80,0.18), transparent);
+      margin: 18px 0;
+    }
+
+    .about {
+      font-size: 12.5px;
+      line-height: 1.85;
+      color: #8a9fc0;
+      margin-bottom: 22px;
+      text-align: left;
+    }
+
+    /* ── 3D Premium Buttons — GitHub Dark Style ── */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn-3d {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Syne', sans-serif;
+      letter-spacing: 0.03em;
+      color: #cdd9e5;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      user-select: none;
+      /* GitHub dark: #21262d surface, #30363d border */
+      background: linear-gradient(160deg, #2d333b 0%, #22272e 55%, #161b22 100%);
+      border: 1px solid rgba(99,110,123,0.40);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.07) inset,
+        0 -1px 0 rgba(0,0,0,0.35) inset,
+        0 5px 0 #0d1117,
+        0 7px 20px rgba(1,4,9,0.55),
+        0 2px 5px rgba(0,0,0,0.45);
+    }
+
+    /* Icon badge on left */
+    .btn-3d .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      min-width: 48px;
+      height: 100%;
+      min-height: 46px;
+      font-size: 17px;
+      background: rgba(0,0,0,0.18);
+      border-right: 1px solid rgba(99,110,123,0.30);
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+      flex-shrink: 0;
+      color: #adbac7;
+    }
+
+    /* Label */
+    .btn-3d .btn-label {
+      flex: 1;
+      text-align: center;
+      padding: 13px 14px 13px 0;
+    }
+
+    /* Shimmer sweep */
+    .btn-3d::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -60%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.60s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .btn-3d:hover::before { left: 120%; }
+
+    .btn-3d:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(160deg, #373e47 0%, #2d333b 55%, #1c2128 100%);
+      border-color: rgba(139,148,158,0.55);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.09) inset,
+        0 7px 0 #0d1117,
+        0 14px 32px rgba(1,4,9,0.65),
+        0 4px 10px rgba(0,0,0,0.45);
+      color: #e6edf3;
+    }
+
+    .btn-3d:hover .btn-icon { color: #e6edf3; }
+
+    .btn-3d:active {
+      transform: translateY(3px) scale(0.99) !important;
+      box-shadow: none !important;
+    }
+
+    /* ── CTA — GitHub green action button style ── */
+    .cta {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: 0.05em;
+      /* GitHub's green "contribute" button */
+      background: linear-gradient(160deg, #238636 0%, #196127 50%, #0f3d1a 100%);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.10) inset,
+        0 -1px 0 rgba(0,0,0,0.35) inset,
+        0 6px 0 #082010,
+        0 10px 28px rgba(35,134,54,0.40),
+        0 3px 8px rgba(0,0,0,0.55);
+      border: 1px solid rgba(46,160,67,0.50);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -60%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+    .cta:hover::before { left: 120%; }
+
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.12) inset,
+        0 8px 0 #082010,
+        0 16px 38px rgba(35,134,54,0.50),
+        0 5px 12px rgba(0,0,0,0.55);
+    }
+
+    .cta:active {
+      transform: translateY(3px);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.08) inset,
+        0 2px 0 #082010,
+        0 4px 12px rgba(35,134,54,0.25);
+    }
+
+    footer {
+      margin-top: 18px;
+      color: #3d5070;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
   </style>
 </head>
-
 <body>
-
-  <div class="bg"></div>
 
   <div class="card">
 
-    <!-- Replace with your own image -->
-    <img
-      src="https://via.placeholder.com/200"
-      alt="Thilina Prasad"
-      class="profile"
-    >
+    <div class="avatar-wrap">
+      <img
+        src="https://via.placeholder.com/200"
+        alt="Thilina Prasad"
+        class="profile"
+      >
+      <div class="status"></div>
+    </div>
 
     <h1>Thilina Prasad</h1>
 
-    <div class="role">
-      Software Engineer • Backend • Cloud • Data Systems
+    <div class="role">BI Engineer &nbsp;•&nbsp; Data Engineer</div>
+
+    <div class="role-badge">
+      <i class="fas fa-database"></i>
+      Data Platform &amp; Analytics Expert
     </div>
 
     <div class="skills">
-      <span>Python</span>
-      <span>Java</span>
-      <span>SQL</span>
-      <span>REST APIs</span>
-      <span>Cloud</span>
-      <span>ETL</span>
-      <span>Microservices</span>
-      <span>Linux</span>
+      <span class="hot">Databricks LakeHouse</span>
+      <span class="hot">Power BI</span>
+      <span class="hot">Analytical Engineering</span>
+      <span class="hot">RPA</span>
+      <span class="hot">Metadata Management</span>
+      <span>Looker</span>
+      <span>Tableau</span>
+      <span>Azure Data Lake</span>
+      <span>Spark SQL</span>
+      <span>ADF</span>
+      <span>Fivetran</span>
+      <span>SSIS</span>
+      <span>DAX / MDX / M</span>
+      <span>SSAS / AAS</span>
+      <span>PostgreSQL</span>
+      <span>Oracle</span>
+      <span>MS SQL</span>
+      <span>Dataverse</span>
     </div>
 
+    <div class="divider"></div>
+
     <div class="about">
-      Building scalable backend systems, cloud-native applications,
-      and modern data solutions with a strong focus on performance,
-      clean architecture, and reliability.
+      Experienced data platform professional with over <strong style="color:#7ab8f5">5 years</strong> across FMCG — Production, Finance, Sales &amp; Marketing, and HR. Currently focused on <strong style="color:#7ab8f5">Databricks LakeHouse</strong> platform, driving <strong style="color:#7ab8f5">Analytical Engineering</strong> and <strong style="color:#7ab8f5">Power BI</strong> reporting pipelines. Passionate about <strong style="color:#6dccaa">RPA</strong>, metadata-driven architectures, data modeling, and low-code solutions.
     </div>
 
     <div class="links">
 
-      <a href="https://www.linkedin.com/in/thilina-prasad-b8aa8b1ab/" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        LinkedIn
+      <a class="btn-3d btn-linkedin" href="https://www.linkedin.com/in/thilina-prasad-b8aa8b1ab/" target="_blank">
+        <span class="btn-icon"><i class="fab fa-linkedin"></i></span>
+        <span class="btn-label">LinkedIn</span>
       </a>
 
-      <a href="https://github.com/" target="_blank">
-        <i class="fab fa-github"></i>
-        GitHub
+      <a class="btn-3d btn-github" href="https://github.com/" target="_blank">
+        <span class="btn-icon"><i class="fab fa-github"></i></span>
+        <span class="btn-label">GitHub</span>
       </a>
 
-      <a href="mailto:info.thilinaprasad@gmail.com">
-        <i class="fas fa-envelope"></i>
-        Email
+      <a class="btn-3d btn-email" href="mailto:info.thilinaprasad@gmail.com">
+        <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+        <span class="btn-label">Email Me</span>
       </a>
 
-      <a href="https://wa.me/94775140144" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        WhatsApp
+      <a class="btn-3d btn-whatsapp" href="https://wa.me/94775140144" target="_blank">
+        <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
+        <span class="btn-label">WhatsApp</span>
       </a>
 
     </div>
 
-    <!-- Main CTA -->
-    <a
-      class="cta"
-      href="https://www.linkedin.com/in/thilina-prasad-b8aa8b1ab/"
-      target="_blank"
-    >
+    <a class="cta" href="https://www.linkedin.com/in/thilina-prasad-b8aa8b1ab/" target="_blank">
       <i class="fab fa-linkedin"></i>
       Connect on LinkedIn
     </a>
 
-    <footer>
-      © 2026 Thilina Prasad
-    </footer>
+    <footer>© 2026 Thilina Prasad</footer>
 
   </div>
 
